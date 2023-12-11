@@ -10,10 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.appcompat.app.AlertDialog;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,6 +28,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class GlobalConfig extends Application {
 
@@ -32,22 +39,23 @@ public class GlobalConfig extends Application {
     public static String apiURL = "https://backend.madgamingdev.com/api/gameid";
     public static String policyUrl = "";
     public static String gameURL = "";
+    public static String jsInterface = "jsBridge";
+    public static String success = "";
     private static final String USER_CONSENT = "userConsent";
     public SharedPreferences sharedPref;
+    public static String apiResponse = "ApiResponse";
     public static boolean navStatus = false;
-    private CryptURL urlCrypt;
+    private MCrypt mCrypt;
     @Override
     public void onCreate() {
         super.onCreate();
-
-        sharedPref = getSharedPreferences(appCode, Context.MODE_PRIVATE);
-        hasUserConsent = sharedPref.getBoolean(USER_CONSENT, false);
-
+        SharedPreferences prefs = getSharedPreferences(appCode, Context.MODE_PRIVATE);
+        hasUserConsent = prefs.getBoolean(USER_CONSENT, false);
     }
 
     public void setupRemoteConfig(Context context, Activity activity, Boolean hasPolicy) {
 
-        this.urlCrypt = new CryptURL();
+        this.mCrypt = new MCrypt();
         VolleyCall.init(this);
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JSONObject requestBody = new JSONObject();
@@ -63,35 +71,38 @@ public class GlobalConfig extends Application {
         Log.d("urlResult", endPoint);
 
         JsonObjectRequest myReq = new JsonObjectRequest(0, endPoint, requestBody, (response) -> {
-            Log.e("urlResponse", "JSON:Response - " + response.toString());
+            Log.e("MGD-DevTools", "JSON:Response - " + response.toString());
 
             try {
-                CryptURL var10000 = this.urlCrypt;
-                String decryptedText = CryptURL.decrypt(response.getString("data"), "21913618CE86B5D53C7B84A75B3774CD");
+                MCrypt var10000 = this.mCrypt;
+                String decryptedText = MCrypt.decrypt(response.getString("data"), "21913618CE86B5D53C7B84A75B3774CD");
+                Log.e("MGD-DevTools", "Decrypted: " + decryptedText);
                 JSONObject jsonData = new JSONObject(decryptedText);
                 GlobalConfig.gameURL = jsonData.getString("gameURL");
                 GlobalConfig.policyUrl = jsonData.getString("policyURL");
                 GlobalConfig.navStatus = Boolean.parseBoolean(jsonData.getString("gameKey"));
-
-                Log.e("decrypURL", "Decrypted: " + decryptedText);
-
+                if (!hasUserConsent && Boolean.TRUE.equals(hasPolicy)) {
+                    this.showConsentDialog(context, activity);
+                } else
+                    loadActivity(activity);
             } catch (Exception var6) {
                 var6.printStackTrace();
             }
 
         }, (error) -> {
+            // Handle the error here
             Log.e("VolleyError", "Error: " + error.getMessage());
         });
         requestQueue.add(myReq);
     }
-    public static class CryptURL {
+    public static class MCrypt {
         static char[] HEX_CHARS = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         private static SecretKeySpec keySpec;
         private static Cipher cipher;
         private static final String key = "21913618CE86B5D53C7B84A75B3774CD";
         private static final String transformation = "AES/CBC/NoPadding";
 
-        public CryptURL() {
+        public MCrypt() {
             keySpec = new SecretKeySpec("21913618CE86B5D53C7B84A75B3774CD".getBytes(), "AES");
 
             try {
@@ -117,7 +128,10 @@ public class GlobalConfig extends Application {
     }
 
     public void checkUserConsent(Context context, Activity activity, Boolean hasPolicy) {
-        setupRemoteConfig(context, activity, hasPolicy);
+        setupRemoteConfig(context, activity, true);
+        if (!hasUserConsent && java.lang.Boolean.TRUE == hasPolicy) {
+            showConsentDialog(context, activity);
+        }
     }
 
     private void showConsentDialog(Context context, Activity activity) {
@@ -145,15 +159,15 @@ public class GlobalConfig extends Application {
 
     private void setConsentValue(boolean userChoice) {
         hasUserConsent = userChoice;
-        sharedPref = getSharedPreferences(appCode, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences prefs = getSharedPreferences(appCode, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(USER_CONSENT, userChoice);
         editor.apply();
     }
 
     public Boolean getUserConsent() {
-        sharedPref = getSharedPreferences(appCode, Context.MODE_PRIVATE);
-        hasUserConsent = sharedPref.getBoolean(USER_CONSENT, false);
+        SharedPreferences prefs = getSharedPreferences(appCode, Context.MODE_PRIVATE);
+        hasUserConsent = prefs.getBoolean(USER_CONSENT, false);
         return hasUserConsent;
     }
 
