@@ -1,0 +1,83 @@
+
+a	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(íîå]8¯‡¬¸Å1
+v
+java:S1192k"TUse already-defined constant 'transformation' instead of duplicating its value here.(¿•ˆ¯ùÿÿÿÿ8µÕµ¸Å1
+f
+java:S1192O"IUse already-defined constant 'key' instead of duplicating its value here.(ôä›Â8µÕµ¸Å1
+o
+java:S1104'"RMake apiURL a static final constant or non-public and provide accessors if needed.(îì…ƒ8°‡¬¸Å1
+w
+java:S1104("UMake policyUrl a static final constant or non-public and provide accessors if needed.(ö…º»şÿÿÿÿ8°‡¬¸Å1
+p
+java:S1104)"SMake gameURL a static final constant or non-public and provide accessors if needed.(çÇõò8°‡¬¸Å1
+y
+java:S1104*"WMake jsInterface a static final constant or non-public and provide accessors if needed.(¸ó­şÿÿÿÿ8°‡¬¸Å1
+u
+java:S1104+"SMake success a static final constant or non-public and provide accessors if needed.(•ÆˆÃüÿÿÿÿ8°‡¬¸Å1
+x
+java:S1104-"VMake sharedPref a static final constant or non-public and provide accessors if needed.(ÈïÛ ıÿÿÿÿ8°‡¬¸Å1
+w
+java:S1104."UMake navStatus a static final constant or non-public and provide accessors if needed.(Å˜ÿÿÿÿÿ8°‡¬¸Å1
+I
+java:S1444'",Make this "public static apiURL" field final(îì…ƒ8±‡¬¸Å1
+Q
+java:S1444("/Make this "public static policyUrl" field final(ö…º»şÿÿÿÿ8±‡¬¸Å1
+J
+java:S1444)"-Make this "public static gameURL" field final(çÇõò8±‡¬¸Å1
+S
+java:S1444*"1Make this "public static jsInterface" field final(¸ó­şÿÿÿÿ8±‡¬¸Å1
+O
+java:S1444+"-Make this "public static success" field final(•ÆˆÃüÿÿÿÿ8±‡¬¸Å1
+Q
+java:S1444."/Make this "public static navStatus" field final(Å˜ÿÿÿÿÿ8±‡¬¸Å1
+v	java:S115%"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(«Ùö°8Ç‡¬¸Å1
+t
+java:S1450/"WRemove the "urlCrypt" field and declare it as a local variable in the relevant methods.(¡‡Ó‹8É‡¬¸Å1
+S
+java:S26965"6Make the enclosing method "static" or remove this set.(™·æë8Ğ‡¬¸Å1
+k
+java:S11729"IRemove these unused method parameters "context", "activity", "hasPolicy".(³ÂñÓÿÿÿÿÿ8³úˆ¹Å1
+J
+java:S2440;"(Remove this instantiation of "CryptURL".(€äÉ«ùÿÿÿÿ8Ñ‡¬¸Å1
+X
+java:S1611J"6Remove the parentheses around the "response" parameter(úè×©ıÿÿÿÿ8Ô‡¬¸Å1
+O
+java:S1481N"-Remove this unused "var10000" local variable.(¾ì§—úÿÿÿÿ8Õ‡¬¸Å1
+X
+java:S2696Q"6Make the enclosing method "static" or remove this set.(ºœ¢Íúÿÿÿÿ8Õ‡¬¸Å1
+S
+java:S2696R"6Make the enclosing method "static" or remove this set.(©ù½Ÿ8Õ‡¬¸Å1
+X
+java:S2696S"6Make the enclosing method "static" or remove this set.(Âì¸…şÿÿÿÿ8Ö‡¬¸Å1
+O
+java:S1611["3Remove the parentheses around the "error" parameter(„‰z8Ö‡¬¸Å1
+H
+java:S1602[",Remove useless curly braces around statement(„‰z8Ö‡¬¸Å1
+v	java:S115d"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÒáÚ®8ÜÕµ¸Å1
+{	java:S115e"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(µş—úıÿÿÿÿ8ÜÕµ¸Å1
+v
+java:S3008a"TRename this field "HEX_CHARS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—”¿ñıÿÿÿÿ8ÜÕµ¸Å1
+:
+java:S1118g"Hide this public constructor.(²²šÏ8‘µ­¸Å1
+F
+java:S3010h"$Remove this assignment of "keySpec".(Ãª¹Õşÿÿÿÿ8İÕµ¸Å1
+E
+java:S3010k"#Remove this assignment of "cipher".(¿•ˆ¯ùÿÿÿÿ8ŞÕµ¸Å1
+X
+java:S6437h"6Revoke and change this password, as it is compromised.(Ãª¹Õşÿÿÿÿ8ŞÕµ¸Å1
+O
+java:S1602”",Remove useless curly braces around statement(Š§ÆÆøÿÿÿÿ8â‡¬¸Å1
+T
+java:S2696œ"6Make the enclosing method "static" or remove this set.(¥ÍÅĞ8â‡¬¸Å1
+T
+java:S2696¥"6Make the enclosing method "static" or remove this set.(™·æë8ã‡¬¸Å1
+M
+java:S1068b"+Remove this unused "keySpec" private field.(’ƒíÀøÿÿÿÿ8ïÕµ¸Å1
+L
+java:S1068c"*Remove this unused "cipher" private field.(¶¨Ìëùÿÿÿÿ8ïÕµ¸Å1
+D
+java:S1068d"'Remove this unused "key" private field.(ÒáÚ®8ïÕµ¸Å1
+T
+java:S1068e"2Remove this unused "transformation" private field.(µş—úıÿÿÿÿ8ïÕµ¸Å1
+T
+java:S1144„"6Remove this unused private "showConsentDialog" method.(‹ë×Ñ8õúˆ¹Å1
