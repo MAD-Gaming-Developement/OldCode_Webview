@@ -10,14 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import androidx.appcompat.app.AlertDialog;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,9 +24,6 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class GlobalConfig extends Application {
 
@@ -39,8 +32,6 @@ public class GlobalConfig extends Application {
     public static String apiURL = "https://backend.madgamingdev.com/api/gameid";
     public static String policyUrl = "";
     public static String gameURL = "";
-    public static String jsInterface = "jsBridge";
-    public static String success = "";
     private static final String USER_CONSENT = "userConsent";
     public SharedPreferences sharedPref;
     public static boolean navStatus = false;
@@ -49,8 +40,8 @@ public class GlobalConfig extends Application {
     public void onCreate() {
         super.onCreate();
 
-        SharedPreferences prefs = getSharedPreferences(appCode, Context.MODE_PRIVATE);
-        hasUserConsent = prefs.getBoolean(USER_CONSENT, false);
+        sharedPref = getSharedPreferences(appCode, Context.MODE_PRIVATE);
+        hasUserConsent = sharedPref.getBoolean(USER_CONSENT, false);
 
     }
 
@@ -154,15 +145,15 @@ public class GlobalConfig extends Application {
 
     private void setConsentValue(boolean userChoice) {
         hasUserConsent = userChoice;
-        SharedPreferences prefs = getSharedPreferences(appCode, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
+        sharedPref = getSharedPreferences(appCode, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean(USER_CONSENT, userChoice);
         editor.apply();
     }
 
     public Boolean getUserConsent() {
-        SharedPreferences prefs = getSharedPreferences(appCode, Context.MODE_PRIVATE);
-        hasUserConsent = prefs.getBoolean(USER_CONSENT, false);
+        sharedPref = getSharedPreferences(appCode, Context.MODE_PRIVATE);
+        hasUserConsent = sharedPref.getBoolean(USER_CONSENT, false);
         return hasUserConsent;
     }
 
