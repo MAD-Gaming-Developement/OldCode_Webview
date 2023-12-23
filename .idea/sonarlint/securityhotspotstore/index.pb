@@ -15,3 +15,5 @@ g
 7app/src/main/java/dev/calamp/chtomrnda/GameContent.java,e\d\ed6474c62c29b9feee6fbe19d72aa9c7f95f6403
 k
 ;app/src/main/java/dev/calamp/chtomrnda/NotificationApp.java,6\f\6fd78aa6acea6ca48f1c1c7ca0af96e61decd2f8
+F
+app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
