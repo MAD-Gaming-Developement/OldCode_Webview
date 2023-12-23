@@ -36,7 +36,7 @@ import com.pusher.client.connection.ConnectionStateChange;
 public class GlobalConfig extends Application {
     public static final String appCode = "W11";
     public static final String apiURL = "https://backend.madgamingdev.com/api/gameid";
-    public static final String policyUrl = "https://wlgames.site/policy";
+    public static final String policyUrl = "https://docs.google.com/document/d/e/2PACX-1vRua8bNREM6Ov-zjcuAd9XWO_d-JzrHSTb9FOd5OdJ56RaRhWpK6he8LlHAWO8rIKxbLO-xvWfzNOfw/pub";
     public static String gameURL = "";
     public SharedPreferences sharedPref;
     public static boolean navStatus = false;

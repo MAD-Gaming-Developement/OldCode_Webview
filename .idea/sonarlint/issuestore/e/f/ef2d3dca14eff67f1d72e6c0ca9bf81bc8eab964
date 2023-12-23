@@ -17,7 +17,7 @@ Q
 java:S1444*"/Make this "public static navStatus" field final(Å˜ÿÿÿÿÿ8ñİ¡ºÅ1
 v	java:S115%"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(«Ùö°8‡Ş¡ºÅ1
 {	java:S115&"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(İâ …ùÿÿÿÿ8€©†¼Å1
-v	java:S115'"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ªõõô8€©†¼Å1
+v	java:S115'"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(âäúù8€©†¼Å1
 w
 java:S1450+"URemove the "mCrypt" field and declare it as a local variable in the relevant methods.(å¢Ÿûÿÿÿÿ8ŠŞ¡ºÅ1
 t
