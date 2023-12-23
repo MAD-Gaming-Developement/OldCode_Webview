@@ -11,7 +11,7 @@ h
 8app/src/main/java/dev/calamp/chtomrnda/SplashScreen.java,2\3\23987d24f5776a1bf1410383120e1a45d75cdb73
 f
 6app/src/main/java/dev/calamp/chtomrnda/VolleyCall.java,1\0\10b0db84f1b15211361525f562971766d23f2397
-f
-6app/src/main/java/dev/calamp/chtomrnda/DataPolicy.java,9\a\9ae775d310a0627ffce1e6ef70839a92044ef15e
 g
 7app/src/main/java/dev/calamp/chtomrnda/GameContent.java,e\d\ed6474c62c29b9feee6fbe19d72aa9c7f95f6403
+k
+;app/src/main/java/dev/calamp/chtomrnda/NotificationApp.java,6\f\6fd78aa6acea6ca48f1c1c7ca0af96e61decd2f8

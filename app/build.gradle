@@ -19,7 +19,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -44,8 +45,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.alibaba:fastjson:2.0.42'
 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation 'com.pusher:pusher-java-client:2.4.2'
+    implementation 'com.pusher:push-notifications-android:1.9.0'
 }

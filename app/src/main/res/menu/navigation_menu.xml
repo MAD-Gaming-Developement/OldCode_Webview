@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Game" />
+    <item
+        android:id="@+id/nav_notify"
+        android:icon="@drawable/ic_settings"
+        android:title="Notif" />
+    <item
+        android:id="@+id/nav_policy"
+        android:icon="@drawable/ic_policy_"
+        android:title="Policy" />
+</menu>
